@@ -1,0 +1,1 @@
+export const getItemsTotal = (items) => items.reduce((a, b) => +a + + (b.price * b.quantity), 0);
