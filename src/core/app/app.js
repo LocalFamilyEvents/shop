@@ -2,14 +2,12 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "../layout/layout";
-import Header from "../../features/header/header";
-import Footer from "../footer/footer";
 import Home from "../../features/home/home";
 import Cart from "../../features/cart/cart";
 import Orders from "../../features/orders/orders";
 import { getItemsTotal } from "../../shared/moneyUtils";
 
-import "./index.css";
+import "./app.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -38,9 +36,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <Layout>
-        <BrowserRouter>
-          <Header />
+      <BrowserRouter>
+        <Layout>
           <Routes>
             <Route
               index
@@ -59,9 +56,8 @@ class App extends React.Component {
               element={<Orders orders={this.state.orders} />}
             />
           </Routes>
-        </BrowserRouter>
-        <Footer />
-      </Layout>
+        </Layout>
+      </BrowserRouter>
     );
   }
 }

@@ -14,13 +14,15 @@ export const ordersSlice = createSlice({
           sku: 123,
           name: "Ski boots",
           quantity: 1,
-          price: 12.99
+          price: 12.99,
+          imageUrl: '/images/ski-boots.jpg',
         },
         {
           sku: 243,
           name: "Ski Jacket",
           quantity: 1,
-          price: 24.50
+          price: 24.50,
+          imageUrl: '/images/ski-jacket.jpg',
         },
       ],
     },

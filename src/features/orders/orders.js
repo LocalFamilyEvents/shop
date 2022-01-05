@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
+
 import Price from '../../components/price/price';
+import ProductImage from "../../components/productImage/productImage";
 import { getOrders } from './selectors';
 
 function Orders(props) {
@@ -7,6 +9,8 @@ function Orders(props) {
     const orderItems = (items) => items.map((item) => (
         <li key={item.sku}>
             <em>{item.quantity}</em> x {item.name} SKU {item.sku} = <Price value={item.price * item.quantity} />
+            <br />
+            <ProductImage url={item.imageUrl} name={item.name} />
         </li>
     ));
 

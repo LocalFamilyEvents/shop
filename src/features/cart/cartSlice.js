@@ -1,24 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const emptyCartState = [];
+
 export const cartSlice = createSlice({
   name: "cart",
-  initialState: [
-    {
-      sku: 123,
-      name: "Ski boots",
-      price: 12.99,
-      quantity: 1,
-    },
-  ],
+  initialState: emptyCartState,
   reducers: {
     addToCart: (state, action) => {
-      var sku = action.payload.sku;
+      var {sku, quantity} = action.payload;
       var productIfInCart = state.filter((ci) => ci.sku === sku);
 
       var newState;
 
       if (productIfInCart.length > 0) {
-        var newQuantity = productIfInCart[0].quantity + 1;
+        var newQuantity = productIfInCart[0].quantity + quantity;
         newState = state.map((ci) =>
           ci.sku === sku ? { ...ci, quantity: newQuantity } : ci
         );
@@ -44,20 +39,17 @@ export const cartSlice = createSlice({
       
       return newState;
     },
+    emptyCart: (state, action) => {
+      return emptyCartState;
+    }
   },
-  // (state, action) => {
-  //   switch(action.type) {
-  //     case ADD_TO_CART_ACTION:
-  //       return [...state, action.payload];
-  //     default: return state;
-  //   }
-  // }
 });
 
 export const {
   addToCart,
   deleteCartItem,
   updateCartItemQuantity,
+  emptyCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

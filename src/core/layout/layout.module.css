@@ -1,0 +1,17 @@
+.root {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.innerContent {
+    padding: 10px 10px 40px 10px;
+}
+
+.footer {
+    height: 40px;
+    margin-top: -40px;
+}

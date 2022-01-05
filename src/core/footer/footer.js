@@ -1,8 +1,8 @@
-import './component.css';
+import styles from './footer.module.css';
 
 function Footer(props) {
     return (
-        <div className='footer'>
+        <div className={styles.root}>
             {new Date().getFullYear()}
         </div>
     );
